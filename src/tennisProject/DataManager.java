@@ -1,8 +1,5 @@
 package tennisProject;
 
-import lombok.Getter;
-
-@Getter
 public class DataManager {
 	
 	private static DataManager instance = new DataManager();
@@ -14,15 +11,15 @@ public class DataManager {
 	private int[] gameScore = {0, 0};
 	private int[] setScore = {0, 0};
 	
-	private boolean isStop = true; // test
-
+	private boolean isStop = false; // test
+	
 	private DataManager() { }
 	public static DataManager getInstance() {
 		if (instance == null)
 			instance = new DataManager();
 		return instance;
 	}
-
+	
 	public void pointWinner(int teamNumber) {
 		//TODO : µ‡Ω∫ ∑Œ¡˜
 		this.point[teamNumber]++;
@@ -40,10 +37,10 @@ public class DataManager {
 		if (setScore[teamNumber] > totalSetNumber / 2) {
 			System.out.printf("%d∆¿ Ω¬∏Æ\n", teamNumber+1); // test ∞‘¿”¡æ∑·
 			setScore = new int[]{0, 0};
-			isStop = false;
+			isStop = true;
 		}
 	}
-	
+
 	public void reset() {
 		//TODO
 		//System.out.println("reset");
@@ -55,5 +52,18 @@ public class DataManager {
 	
 	public void setTotalSetNumber(int totalSetNumber) {
 		this.totalSetNumber = totalSetNumber;
+	}
+	
+	public int[] getGameScore() {
+		return gameScore;
+	}
+	public int[] getSetScore() {
+		return setScore;
+	}
+	public int[] getPoint() {
+		return point;
+	}
+	public boolean isStop() {
+		return isStop;
 	}
 }
