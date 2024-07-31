@@ -1,28 +1,44 @@
 package tennisProject;
 
-import java.io.IOException;
 import java.util.Random;
+import java.util.Scanner;
 
 public class GameManager {
 	DataManager dm = DataManager.getInstance();
 	DisplayManager dsm = new DisplayManager();
-	
+
 	public void startGame() {
-		dm.setTotalSetNumber(3); // test 
+		initSettings();
 		Random rnd = new Random();
-		
+
 		while (!dm.isStop()) {
 			int i = rnd.nextInt(2);
 			dm.pointWinner(i);
 			dsm.dispScoreBoard();
-			
+
 			System.out.println("> 엔터치면 진행합니다.");
 			try {
 				System.in.read();
 				System.in.skip( System.in.available() );
-			} catch (IOException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
+	}
+
+	private void initSettings() {
+		Scanner scanner = new Scanner(System.in);
+		String regex = "[1-2]";
+		String input = null;
+		do {
+			System.out.print("=".repeat(15));
+			System.out.print("세트 선택");
+			System.out.println("=".repeat(15));
+			System.out.println("\t[1] 3set \t[2] 5set ");
+			System.out.print("\t\t선택 ? ");
+			input = scanner.next();
+		} while (!input.matches(regex));
+		int setNumber = input.equals("1") ? 3 : 5;
+		dm.setTotalSetNumber(setNumber);
 	}
 }
