@@ -9,6 +9,7 @@ public class DataManager {
 	private static DataManager instance = new DataManager();
 
 	private int totalSetNumber = 0;
+	private String[] players = new String[2];
 
 	private int[] point = {0, 0};
 	private int[] gameScore = {0, 0};
@@ -59,7 +60,7 @@ public class DataManager {
 		// 승리팀 결정
 		if (setScore[teamNumber] > totalSetNumber / 2) {
 			System.out.println("*".repeat(50));
-			System.out.printf("\t\t%d팀 승리\n", teamNumber+1); 
+			System.out.printf("\t\t%s 승리\n", players[teamNumber]); 
 			System.out.println("*".repeat(50));
 			setScore = new int[]{0, 0};
 			isStop = true;
@@ -79,6 +80,12 @@ public class DataManager {
 	}
 	public void setTieBreak(boolean isTieBreak) {
 		this.isTieBreak = isTieBreak;
+	}
+	public void setPlayers(String[] players) {
+		this.players = players;
+	}
+	public String[] getPlayers() {
+		return players;
 	}
 	public int[] getGameScore() {
 		return gameScore;

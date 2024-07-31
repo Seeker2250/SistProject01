@@ -20,9 +20,9 @@ public class DisplayManager {
 		String separator2 = " ┠───────────────────────────────┨\n";
 		String separator3 = " ┗───────────────────────────────┛\n";
 		String status1 = String.format
-				(format, " 1팀", dm.getGameScore()[0], dm.getSetScore()[0], strPoint[t1Point]);
+				(format, dm.getPlayers()[0], dm.getGameScore()[0], dm.getSetScore()[0], strPoint[t1Point]);
 		String status2 = String.format
-				(format, " 2팀", dm.getGameScore()[1], dm.getSetScore()[1], strPoint[t2Point]);
+				(format, dm.getPlayers()[1], dm.getGameScore()[1], dm.getSetScore()[1], strPoint[t2Point]);
 		String scoreboard = separator1 +  header+ separator2 + status1 + status2 + separator3;
 
 		System.out.print(scoreboard);

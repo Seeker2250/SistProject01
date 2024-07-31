@@ -16,7 +16,7 @@ public class GameManager {
 			dm.pointWinner(i);
 			dsm.dispScoreBoard();
 
-			System.out.println("> 엔터치면 진행합니다.");
+			System.out.println("> 엔터키를 눌러 게임 진행 <");
 			try {
 				System.in.read();
 				System.in.skip( System.in.available() );
@@ -51,5 +51,22 @@ public class GameManager {
 		} while (!input.matches(regex));
 		boolean isTieBreak = input.equals("1");
 		dm.setTieBreak(isTieBreak);
+		
+		regex = "[1-5]";
+		String[] players = { "김준석", "원충희", "박준용", "최사랑", "이시훈" };
+		String selectedPlayer[] = new String[2];
+		for (int i = 0; i < selectedPlayer.length; i++) {
+			do {
+				System.out.print("=".repeat(12));
+				System.out.printf("%d번째 선수 선택", i+1);
+				System.out.println("=".repeat(12));
+				System.out.printf(" [1] %s [2] %s [3] %s \n\t[4] %s [5] %s \n",
+						players[0], players[1], players[2], players[3], players[4]);
+				System.out.print("\t\t선택 ? ");
+				input = scanner.next();
+			} while (!input.matches(regex) || players[Integer.parseInt(input)-1].equals(selectedPlayer[0]));
+			selectedPlayer[i] = players[Integer.parseInt(input)-1];
+		}
+		dm.setPlayers(selectedPlayer);
 	}
 }
