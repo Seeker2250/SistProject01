@@ -60,7 +60,7 @@ public class GameManager {
 				System.out.print("=".repeat(12));
 				System.out.printf("%d번째 선수 선택", i+1);
 				System.out.println("=".repeat(12));
-				System.out.printf(" [1] %s [2] %s [3] %s \n\t[4] %s [5] %s \n",
+				System.out.printf("  [1] %s [2] %s [3] %s \n\t[4] %s [5] %s \n",
 						players[0], players[1], players[2], players[3], players[4]);
 				System.out.print("\t\t선택 ? ");
 				input = scanner.next();
