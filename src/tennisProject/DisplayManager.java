@@ -16,7 +16,7 @@ public class DisplayManager {
 
 		String format =         " ┃ %-6s ┃     %-6s ┃     %-6s ┃   %-4s\t ┃ \n"; 
 
-		String header = String.format (" ┃%6s   ┃   %-4s ┃   %-4s ┃   %-4s  ┃  \n", "팀","게임","세트","포인트");
+		String header = String.format (" ┃%6s   ┃   %-4s ┃   %-4s ┃   %-4s  ┃  \n", "선수","게임","세트","포인트");
 		String separator2 = " ┠───────────────────────────────┨\n";
 		String separator3 = " ┗───────────────────────────────┛\n";
 		String status1 = String.format
