@@ -4,18 +4,19 @@ import java.io.File;
 import java.io.FileWriter;
 
 public class FileManager {
-   
-   String path = "C:\\Users\\User\\Documents\\tennis.txt";
+	
+	String currentDirectory = System.getProperty("user.dir");
+	String path = currentDirectory + "\\tennis.txt";
 
-   public void log(String line) {
-	   File file = new File(path);
-	   
-	   try (FileWriter writer = new FileWriter(file,true)){
+	public void log(String line) {
+		File file = new File(path);
 
-		   writer.write(line);
+		try (FileWriter writer = new FileWriter(file,true)){
 
-      } catch (Exception e) {
-         e.printStackTrace();
-      }
-   } 
+			writer.write(line);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	} 
 }
