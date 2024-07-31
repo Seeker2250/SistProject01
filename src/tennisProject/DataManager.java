@@ -1,5 +1,9 @@
 package tennisProject;
 
+/**
+ * @author wch
+ *
+ */
 public class DataManager {
 
 	private static DataManager instance = new DataManager();
@@ -11,6 +15,7 @@ public class DataManager {
 	private int[] setScore = {0, 0};
 
 	private boolean isStop = false;
+	private boolean isTieBreak = false;
 
 	private DataManager() { }
 
@@ -71,6 +76,9 @@ public class DataManager {
 
 	public void setTotalSetNumber(int totalSetNumber) {
 		this.totalSetNumber = totalSetNumber;
+	}
+	public void setTieBreak(boolean isTieBreak) {
+		this.isTieBreak = isTieBreak;
 	}
 	public int[] getGameScore() {
 		return gameScore;

@@ -40,5 +40,16 @@ public class GameManager {
 		} while (!input.matches(regex));
 		int setNumber = input.equals("1") ? 3 : 5;
 		dm.setTotalSetNumber(setNumber);
+		
+		do {
+			System.out.print("=".repeat(11));
+			System.out.print("타이브레이크 적용");
+			System.out.println("=".repeat(11));
+			System.out.println("\t[1] O \t\t[2] X ");
+			System.out.print("\t\t선택 ? ");
+			input = scanner.next();
+		} while (!input.matches(regex));
+		boolean isTieBreak = input.equals("1");
+		dm.setTieBreak(isTieBreak);
 	}
 }
