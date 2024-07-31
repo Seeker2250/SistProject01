@@ -1,5 +1,6 @@
 package tennisProject;
 
+import java.io.IOException;
 import java.util.Random;
 
 public class GameManager {
@@ -7,15 +8,21 @@ public class GameManager {
 	DisplayManager dsm = new DisplayManager();
 	
 	public void startGame() {
-		//TODO : ¼¼Æ® ¼±ÅÃ, ¼±¼ö ¼±ÅÃ, °ÔÀÓ Á¾·á ·ÎÁ÷ , ¿£ÅÍÁøÇà
 		dm.setTotalSetNumber(3); // test 
 		Random rnd = new Random();
 		
 		while (!dm.isStop()) { // test
 			int i = rnd.nextInt(2);
-			dsm.dispScoreBoard();
 			dm.pointWinner(i);
+			dsm.dispScoreBoard();
+			
+			System.out.println("> ì—”í„°ì¹˜ë©´ ì§„í–‰í•œë‹¤.");
+			try {
+				System.in.read();
+				System.in.skip( System.in.available() );
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
-
 }

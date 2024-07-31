@@ -1,11 +1,21 @@
 package tennisProject;
 
+import java.io.File;
+import java.io.FileWriter;
+
 public class FileManager {
-	//TODO
-	String path = "";
-	
-	public void log(String line) {
-		//TODO : 파일에 line 기록
-		System.out.println("파일기록"); // test
-	}
+   
+   String path = "C:\\Users\\User\\Documents\\tennis.txt";
+
+   public void log(String line) {
+	   File file = new File(path);
+	   
+	   try (FileWriter writer = new FileWriter(file,true)){
+
+		   writer.write(line);
+
+      } catch (Exception e) {
+         e.printStackTrace();
+      }
+   } 
 }
