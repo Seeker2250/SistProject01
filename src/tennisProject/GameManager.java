@@ -11,12 +11,12 @@ public class GameManager {
 		dm.setTotalSetNumber(3); // test 
 		Random rnd = new Random();
 		
-		while (!dm.isStop()) { // test
+		while (!dm.isStop()) {
 			int i = rnd.nextInt(2);
 			dm.pointWinner(i);
 			dsm.dispScoreBoard();
 			
-			System.out.println("> 엔터치면 진행한다.");
+			System.out.println("> 엔터치면 진행합니다.");
 			try {
 				System.in.read();
 				System.in.skip( System.in.available() );

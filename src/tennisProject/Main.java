@@ -16,7 +16,7 @@ public class Main {
 			dm.reset();
 			gm.startGame();
 			try {
-				System.out.println("> 엔터치면 진행한다.");
+				System.out.println("> 다시 게임을 시작하려면 엔터");
 				System.in.read();
 				System.in.skip(System.in.available());
 				
