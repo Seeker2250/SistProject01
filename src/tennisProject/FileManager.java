@@ -6,7 +6,7 @@ import java.io.FileWriter;
 public class FileManager {
 
 	String currentDirectory = System.getProperty("user.dir");
-	String path = currentDirectory + "\\tennis.txt";
+	String path = currentDirectory + "\\log_tennis.txt";
 
 	public void log(String line) {
 		File file = new File(path);

@@ -8,8 +8,10 @@ public class Main {
 
 		GameManager gm = new GameManager();
 		DataManager dm = DataManager.getInstance();
+		
 		String currentDirectory = System.getProperty("user.dir");
-		File file = new File(currentDirectory +"\\tennis.txt");
+		File file = new File(currentDirectory +"\\log_tennis.txt");
+		
 		if (file.exists()) file.delete();
 		while(true) {
 			dm.reset();

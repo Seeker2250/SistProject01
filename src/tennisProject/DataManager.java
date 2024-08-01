@@ -1,9 +1,5 @@
 package tennisProject;
 
-/**
- * @author wch
- *
- */
 public class DataManager {
 
 	private static DataManager instance = new DataManager();
@@ -17,6 +13,7 @@ public class DataManager {
 
 	private boolean isStop = false;
 	private boolean isTieBreak = false;
+	private boolean nowTieBreak = false;
 
 	private DataManager() { }
 
@@ -30,25 +27,36 @@ public class DataManager {
 
 		this.point[teamNumber]++; 
 		// Point score 로직
-		if (point[teamNumber]>=3) {
+		if (point[teamNumber]>=3 && !nowTieBreak) {
 
-			if (point[0]==point[1]) {
+			if (point[0] == point[1]) {
 				point[0] =3;
 				point[1] =3;
 				System.out.println("\t\t듀스 발생");
 			}
 
-			if(Math.abs(point[0]-point[1]) >=2 && point[teamNumber]==4) {
+			if(Math.abs(point[0] - point[1]) >= 2 && point[teamNumber] == 4) {
+				
 				gameScore[teamNumber]++; 
 				point = new int[]{0, 0};
+				
 			}else if (point[teamNumber]==5) {
+				
 				System.out.println("\t\t연속 득점 승리!");
 				gameScore[teamNumber]++;
 				point = new int[]{0, 0};
+				
 			}
 		}
+
 		// Game score 로직
-		if(gameScore[teamNumber]>=6) {
+		if (isTieBreak && gameScore[teamNumber] == 6 && (gameScore[0] == gameScore[1])) {
+			
+			nowTieBreak = true;
+			tieBreakGame(teamNumber);
+
+		}else if(gameScore[teamNumber] >= 6) {
+
 			if (Math.abs(gameScore[0] - gameScore[1]) < 2) {
 			}
 			else{
@@ -57,13 +65,27 @@ public class DataManager {
 				////승리
 			}
 		}
+		
 		// 승리팀 결정
 		if (setScore[teamNumber] > totalSetNumber / 2) {
+			
 			System.out.println("*".repeat(50));
 			System.out.printf("\t\t%s 승리\n", players[teamNumber]); 
 			System.out.println("*".repeat(50));
 			setScore = new int[]{0, 0};
 			isStop = true;
+		}
+	}
+	
+	private void tieBreakGame(int teamNumber) {
+		
+		System.out.println("\t타이 진행중");
+		if (point[teamNumber]==7) {
+			setScore[teamNumber]++; 
+			point = new int[]{0, 0};
+			gameScore = new int[]{0, 0};
+			System.out.println("타이브레이크 승리!!");
+			nowTieBreak = false;
 		}
 	}
 
@@ -98,5 +120,8 @@ public class DataManager {
 	}
 	public boolean isStop() {
 		return isStop;
+	}
+	public boolean nowTieBreak() {
+		return nowTieBreak;
 	}
 }

@@ -12,10 +12,7 @@ public class GameManager {
 		Random rnd = new Random();
 
 		while (!dm.isStop()) {
-			int i = rnd.nextInt(2);
-			dm.pointWinner(i);
-			dsm.dispScoreBoard();
-
+			
 			System.out.println("> 엔터키를 눌러 게임 진행 <");
 			try {
 				System.in.read();
@@ -23,13 +20,19 @@ public class GameManager {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
+			int i = rnd.nextInt(2);
+			dm.pointWinner(i);
+			dsm.dispScoreBoard();
 		}
 	}
 
 	private void initSettings() {
+		
 		Scanner scanner = new Scanner(System.in);
 		String regex = "[1-2]";
 		String input = null;
+		
 		do {
 			System.out.print("=".repeat(15));
 			System.out.print("세트 선택");
