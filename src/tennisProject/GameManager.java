@@ -12,7 +12,7 @@ public class GameManager {
 		Random rnd = new Random();
 
 		while (!dm.isStop()) {
-			
+
 			System.out.println("> 엔터키를 눌러 게임 진행 <");
 			try {
 				System.in.read();
@@ -20,10 +20,10 @@ public class GameManager {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			
+
 			int i = rnd.nextInt(2);
-			dm.pointWinner(i);
 			dsm.dispScoreBoard();
+			dm.pointWinner(i);
 		}
 	}
 
