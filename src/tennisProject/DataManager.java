@@ -101,31 +101,15 @@ public class DataManager {
 		isStop = false;
 	}
 
-	public void setTotalSetNumber(int totalSetNumber) {
-		this.totalSetNumber = totalSetNumber;
-	}
-	public void setTieBreak(boolean isTieBreak) {
-		this.isTieBreak = isTieBreak;
-	}
-	public void setPlayers(String[] players) {
-		this.players = players;
-	}
-	public String[] getPlayers() {
-		return players;
-	}
-	public int[] getGameScore() {
-		return gameScore;
-	}
-	public int[] getSetScore() {
-		return setScore;
-	}
-	public int[] getPoint() {
-		return point;
-	}
-	public boolean isStop() {
-		return isStop;
-	}
-	public boolean nowTieBreak() {
-		return nowTieBreak;
-	}
+	public void setTotalSetNumber(int totalSetNumber) { 
+		this.totalSetNumber = totalSetNumber; 
+		}
+	public void setTieBreak(boolean isTieBreak) { this.isTieBreak = isTieBreak;	}
+	public void setPlayers(String[] players) { this.players = players; }
+	public String[] getPlayers() { return players; }
+	public int[] getGameScore() { return gameScore;	}
+	public int[] getSetScore() { return setScore; }
+	public int[] getPoint() { return point;	}
+	public boolean isStop() { return isStop; }
+	public boolean nowTieBreak() { return nowTieBreak; }
 }
