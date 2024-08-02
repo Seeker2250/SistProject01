@@ -29,6 +29,7 @@ public class GameManager {
 
 	private void initSettings() {
 		
+		@SuppressWarnings("resource")
 		Scanner scanner = new Scanner(System.in);
 		String regex = "[1-2]";
 		String input = null;

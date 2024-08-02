@@ -11,8 +11,8 @@ public class Main {
 		
 		String currentDirectory = System.getProperty("user.dir");
 		File file = new File(currentDirectory +"\\log_tennis.txt");
-		
 		if (file.exists()) file.delete();
+		
 		while(true) {
 			dm.reset();
 			gm.startGame();

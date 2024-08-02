@@ -62,7 +62,6 @@ public class DataManager {
 			else{
 				setScore[teamNumber]++;
 				gameScore = new int[]{0, 0};
-				////승리
 			}
 		}
 		
@@ -78,9 +77,14 @@ public class DataManager {
 	}
 	
 	private void tieBreakGame(int teamNumber) {
-		
+
 		System.out.println("\t타이 진행중");
-		if (point[teamNumber]==7) {
+
+		if (point[teamNumber]>=6 && point[0]==point[1] ) {
+			System.out.println("\t타이 포인트 듀스");
+		}
+
+		if (point[teamNumber]>=7 &&Math.abs(point[0]-point[1]) >=2 ) {
 			setScore[teamNumber]++; 
 			point = new int[]{0, 0};
 			gameScore = new int[]{0, 0};
